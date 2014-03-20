@@ -1,0 +1,96 @@
+canvas {
+	margin: 0 auto;
+    display: block;
+    background: #000;
+}
+body {
+	padding:0;
+	margin:0;
+    overflow: hidden;
+    background: #fff;
+    display: -webkit-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+h1 {
+    padding-top: 5%;
+}
+h1, #description {
+    width: 369px;
+    font-family: monospace;
+    text-align: center;
+}
+#description {
+    font-size: 18px;
+}
+#license {
+    float: right;
+}
+td {
+    padding: 5px;
+}
+#controls {
+    background-color: rgba(226,226,226,0.6);
+    padding: 0 20px;
+    position: absolute;
+    right: -425px;
+    height: 100%;
+    overflow-y: scroll;
+    top: 0;
+}
+button {
+    padding: 5px 10px;
+    border: 0;
+    background: #0f82f5;
+    color: #fff;
+}
+#toggle {
+    position: absolute;
+    height: 100%;
+    right: -2px;
+    top: 0;
+    font-size: 30px;
+    font-family: "Ionicons";
+    z-index: 10;
+    cursor: pointer;
+}
+html {
+    height: 100%;
+}
+
+.frame {
+    -webkit-app-region: drag;
+    height: 25px;
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+    font-family: "Ionicons";
+    text-align: left;
+    font-size: 16px;
+    cursor: default;
+    vertical-align: middle;
+}
+
+.frame a {
+    -webkit-app-region: no-drag;
+    color: #9f9f9f;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    height: 100%;
+    width: 48px;
+    padding-top: 5px;
+}
+
+.frame a:hover {
+    color: gray;
+    background-color: rgba(226,226,226,0.6);
+}
+
+.container
+{
+    margin-top: 20px;
+}

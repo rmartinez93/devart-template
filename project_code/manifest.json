@@ -1,0 +1,12 @@
+{
+  "name": "Little Data",
+  "description": "Conversion of Color to Sound",
+  "version": "1.0",
+  "app": {
+    "background": {
+      "scripts": ["background.js"]
+    }
+  },
+  "icons": { "16": "art-16.png", "128": "art-128.png" },
+  "permissions" : [ "videoCapture", "audioCapture" ]
+}

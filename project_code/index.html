@@ -1,0 +1,81 @@
+<html ng-app="chromeless" ng-csp="">
+<head>
+<title>Little Data: A Web Art Experiment</title>
+<link rel=icon type=image/png href=art-16.png />
+<link rel=author href="https://plus.google.com/+RubenMartinezJr/" />
+<link href="css/angular-csp.css" rel="stylesheet" />
+<link href="css/ionicons.min.css" rel="stylesheet" />
+<link href="css/style.css" rel="stylesheet" />
+<script src=js/jquery.min.js></script>
+<meta name=viewport content="width=device-width, initial-scale=1.0, user-scalable=no" />
+<meta name=description content="Using cutting-edge web technologies, color data taken in from your computer's camera are randomly sampled, processed, and output as sound in real-time.">
+<meta property=og:title content="Little Data: A Web Art Experiment"/>
+<meta name=twitter:title content="Little Data: A Web Art Experiment" />
+<meta property=og:description content="Using cutting-edge web technologies, color data taken in from your computer's camera are randomly sampled, processed, and output as sound in real-time." />
+<meta name=twitter:description content="Using cutting-edge web technologies, color data taken in from your computer's camera are randomly sampled, processed, and output as sound in real-time." />
+<meta property=og:type content="website" />
+<meta property=og:image content="art-128.png" />
+<meta property=og:url content="http://rmartinez.co/DATA" />
+</head>
+<body>
+<video autoplay style=display:none;></video>
+<canvas height=480 width=640 ></canvas>
+<button id=toggle>&#xf2f7;</button>
+<div id=controls>
+  <h1>Little Data</h1>
+  <p id=description>
+    Using cutting-edge web technologies, color data taken in from your computer's camera are randomly sampled, processed, and output as sound in real-time. <br>Different colors sound differently.<br>Listen to how things look.<br>
+    <small>(Requires Google Chrome)</small>
+  </p>
+  <table>
+    <tr>
+      <td>
+        Points:
+      </td>
+      <td>
+        1 <input id=numPoints type=range min=1 max=100 value=50> 100
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Size:
+      </td>
+      <td>
+        1 <input id=squareSize type=range min=1 max=200 value=50> 200
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Frame Rate (fps):
+      </td>
+      <td>
+        100 <input id=frameRate type=range min=10 max=500 value=150> 2
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Pitch Scaling:
+      </td>
+      <td>
+        1 <input id=scale type=range min=1 max=20 value=15> 20
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button id=default type=button>Default</button>
+        <button id=songMode type=button>"Song-Mode"</button>
+      </td>
+    </tr>
+  </table>
+  <p id=license>
+    <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+      <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+    </a>
+  </p>
+</div>
+
+<script src=js/angular.min.js></script>
+<script src=js/app.js></script>
+<script src=js/art.js></script>
+</body>
+</html>
