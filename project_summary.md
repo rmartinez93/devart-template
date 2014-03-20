@@ -8,7 +8,7 @@ Little Data
 Color data processed from a computer's camera are randomly sampled, processed, and output as a pitch in real-time. Different colors sound differently, allowing you to listen to the colors of the world around you. Color-to-sound mapping has long been a personal interest of mine due my color-blindness. While this experiment does not provide a one-to-one mapping of colors and pitches (though I’m working on a project that does just that), it serves more as a way to show just how musical the world around us can be. I added controls so the user in control can change the various factors in the algorithm, and included a few preset options that I felt best illustrated the beauty of listening to what we see.
 
 ## Link to Prototype
-[Link](http://www.rmartinez.co/DATA "Live Version of 'Little Data'")
+[Live Version of 'Little Data'](http://www.rmartinez.co/DATA "Live Version of 'Little Data'")
 
 ## Example Grabbing Color Data, Outputing Pitch
 ```
@@ -29,7 +29,7 @@ if(HSV[2] > 20) { // High Pass Filter (blocks dark colors)
 }
 ```
 ## Links to External Libraries
-[Example Link](https://gist.github.com/mjijackson/5311256 "RGB to HSV Conversion")
+[RGB to HSV Conversion](https://gist.github.com/mjijackson/5311256 "RGB to HSV Conversion")
 
 ## Images & Videos
 NOTE: For additional images you can either use a relative link to an image on this repo or an absolute link to an externally hosted image.
