@@ -29,6 +29,7 @@ if(HSV[2] > 20) { // High Pass Filter (blocks dark colors)
 ```
 ## Links to External Libraries
 [RGB to HSV Conversion](https://gist.github.com/mjijackson/5311256 "RGB to HSV Conversion")
-
+[Chromeless Chrome App](http://sondreb.com/blog/post/chromeless-chrome-app.aspx "Chromeless Chrome App")
+[Ionicons](https://github.com/driftyco/ionicons "Ionicons Framework")
 ## Images & Videos
 ![Example Image](project_images/cover.jpg "Example Image")
