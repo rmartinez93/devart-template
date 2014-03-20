@@ -9,6 +9,7 @@
         ],
         "toolkits": [
             "jQuery"
+            "angularJS"
         ]
     },
     "themes": [
