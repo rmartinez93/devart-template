@@ -31,6 +31,4 @@ if(HSV[2] > 20) { // High Pass Filter (blocks dark colors)
 [RGB to HSV Conversion](https://gist.github.com/mjijackson/5311256 "RGB to HSV Conversion")
 
 ## Images & Videos
-NOTE: For additional images you can either use a relative link to an image on this repo or an absolute link to an externally hosted image.
-
 ![Example Image](project_images/cover.jpg "Example Image")
