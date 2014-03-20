@@ -1,5 +1,5 @@
 # Project Title
-Small Data
+Little Data
 
 ## Authors
 - Ruben Martinez, rmartinez93
