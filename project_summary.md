@@ -16,7 +16,6 @@ y = Math.floor(Math.random()*canvas.clientHeight);
 
 data = ctx.getImageData(x, y, 1, 1).data;
 
-var RGB = data[0]+data[1]+data[2];
 var HSV = rgbToHsv(data[0], data[1], data[2]);
 
 if(HSV[2] > 20) { // High Pass Filter (blocks dark colors)
