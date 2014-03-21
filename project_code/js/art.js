@@ -6,7 +6,6 @@ var ctx;
 var localMediaStream = null;
 
 //Drawing Prep
-var index = 0;
 var x = 0;
 var y = 0;
 var size = 50;
@@ -15,7 +14,7 @@ var numSquares = 30;
 var frameRate = 150;
 
 //Audio Prep
-var scale = 15;
+var scale = 7;
 var context = new webkitAudioContext();
 var oscillator = context.createOscillator();
 oscillator.frequency.value = 0;
@@ -45,19 +44,19 @@ $('#toggle').click(function() {
   });
 });
 $('#numPoints').change(function(){
-  numSquares = $(this).val();
+  numSquares = parseInt($(this).val());
 });
 $('#squareSize').change(function(){
-  size = $(this).val();
+  size = parseInt($(this).val());
 });
 $('#frameRate').change(function(){
-  frameRate = $(this).val();
+  frameRate = parseInt($(this).val());
 });
 $('#scale').change(function(){
-  scale = $(this).val();
+  scale = parseInt($(this).val());
 });
 $('#default').click(function(){
-  scale = 15;
+  scale = 7;
   size = 50;
   numSquares = 30;
   frameRate = 150;
@@ -68,10 +67,10 @@ $('#default').click(function(){
   $('#frameRate').val(frameRate);
 });
 $('#songMode').click(function(){
-  scale = 1;
+  scale = 5;
   size = 50;
   numSquares = 1;
-  frameRate = 260;
+  frameRate = 200;
   
   $('#scale').val(scale);
   $('#squareSize').val(size);
@@ -105,29 +104,24 @@ function snapshot() {
         if(counter <= numSquares) {
             x = Math.floor(Math.random()*canvas.clientWidth);
             y = Math.floor(Math.random()*canvas.clientHeight);
+            
             data = ctx.getImageData(x, y, 1, 1).data;
+
+            var HSL = rgbToHsl(data[0], data[1], data[2]);
+          
+            var height   = Math.pow(2, Math.floor(scale+(HSL[2]/20))); //find proper height, from C-(scale) to C-(scale+5), based on lightness
+            var end      = Math.pow(2, Math.floor(scale+(HSL[2]/20))+1); //end of chosen scale
+            var pitch    = height+(((end-height)/360)*HSL[0]); //find pitch in our scale range, based on hue
+            var loudness = HSL[1]*5; //TODO: find loudness, based on saturation
+
             var now = context.currentTime;
-            if(data[0]+data[1]+data[2] > 200) {
-                oscillator.frequency.setValueAtTime((data[0]+data[1]+data[2])*scale, now);
-                amp.gain.cancelScheduledValues(now);
-                amp.gain.setValueAtTime(amp.gain.value, now);
-                amp.gain.linearRampToValueAtTime(0.5, context.currentTime + 0.1);
-            }
-            ctx.fillStyle="rgba("+data[0]+","+data[1]+","+data[2]+",1)";
+            oscillator.frequency.setValueAtTime(pitch, now);
+            amp.gain.cancelScheduledValues(now);
+            amp.gain.setValueAtTime(amp.gain.value, now);
+            amp.gain.linearRampToValueAtTime(0.5, context.currentTime + 0.1);
 
-            if(index == 0) ctx.fillRect(x - (size/2), y - (size/2), size, size);
-
-            else {
-                ctx.beginPath();
-                ctx.moveTo(x-15, y-26);
-                ctx.lineTo(x+15, y-26);
-                ctx.lineTo(x+30, y);
-                ctx.lineTo(x+15, y+26);
-                ctx.lineTo(x-15, y+26);
-                ctx.lineTo(x-30, y);
-                ctx.closePath();
-                ctx.fill();
-            }
+            ctx.fillStyle="hsla("+Math.floor(HSL[0])+","+Math.floor(HSL[1])+"%,"+Math.floor(HSL[2])+"%, 1)";
+            ctx.fillRect(x - (size/2), y - (size/2), size, size);
         }
         else {
             clearInterval(interval);
@@ -138,6 +132,37 @@ function snapshot() {
         });
     }
 }
+
+// Borrowed from: https://gist.github.com/mjijackson/5311256
+function rgbToHsl(r, g, b) {
+    r /= 255, g /= 255, b /= 255;
+   
+    var max = Math.max(r, g, b), min = Math.min(r, g, b);
+    var h, s, l = (max + min) / 2;
+   
+    if (max == min) {
+      h = s = 0; // achromatic
+    } else {
+      var d = max - min;
+      s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+   
+      switch (max) {
+        case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+        case g: h = (b - r) / d + 2; break;
+        case b: h = (r - g) / d + 4; break;
+      }
+   
+      h /= 6;
+    }
+    h = h*360;
+    s = s*100;
+    l = l*100;
+  
+    if (h > 270)    h = 270; // Nothing corresponding to magenta in the light spectrum
+   
+    return [ h, s, l ];
+}
+
 /*
 //Tilt Variables
 var tiltLR = 0;

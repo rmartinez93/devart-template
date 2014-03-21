@@ -18,6 +18,12 @@
 <meta property=og:url content="http://rmartinez.co/DATA" />
 </head>
 <body>
+<div class="frame" ng-controller="ScreenController as screens">
+  <a href="#" ng-click="close();" id="window-close" title="Close">&#xf2d7;</a>
+  <a href="#" ng-click="restore();" ng-show="isMaximized" title="Restore Down" id="window-restore">&#xf2cc;</a>
+  <a href="#" ng-click="maximize();" ng-hide="isMaximized" title="Maximize" id="window-maximize">&#xf2c7;</a>
+  <a href="#" ng-click="minimize();" id="window-minimize" title="Minimize">&#xf2f4;</a>
+</div>
 <video autoplay style=display:none;></video>
 <canvas height=480 width=640 ></canvas>
 <button id=toggle>&#xf2f7;</button>
@@ -25,7 +31,6 @@
   <h1>Little Data</h1>
   <p id=description>
     Using cutting-edge web technologies, color data taken in from your computer's camera are randomly sampled, processed, and output as sound in real-time. <br>Different colors sound differently.<br>Listen to how things look.<br>
-    <small>(Requires Google Chrome)</small>
   </p>
   <table>
     <tr>
@@ -54,10 +59,10 @@
     </tr>
     <tr>
       <td>
-        Pitch Scaling:
+        Scale Height (C-X - C-X+5):
       </td>
       <td>
-        1 <input id=scale type=range min=1 max=20 value=15> 20
+        C-2 <input id=scale type=range min=3 max=11 value=7> C-10
       </td>
     </tr>
     <tr>
@@ -73,7 +78,6 @@
     </a>
   </p>
 </div>
-
 <script src=js/angular.min.js></script>
 <script src=js/app.js></script>
 <script src=js/art.js></script>

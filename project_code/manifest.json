@@ -1,12 +1,12 @@
 {
-  "name": "Little Data",
-  "description": "Conversion of Color to Sound",
-  "version": "1.0",
+  "name": "Little Data: A Web Art Experiment",
+  "description": "Using cutting-edge web technologies, color data taken in from your computer's camera are sampled, processed & output as sound.",
+  "version": "3.0",
   "app": {
     "background": {
-      "scripts": ["background.js"]
+      "scripts": ["js/background.js"]
     }
   },
-  "icons": { "16": "art-16.png", "128": "art-128.png" },
+  "icons": { "16": "img/art-16.png", "128": "img/art-128.png" },
   "permissions" : [ "videoCapture", "audioCapture" ]
 }
