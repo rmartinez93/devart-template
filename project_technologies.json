@@ -1,10 +1,5 @@
 {
     "technologies": {
-        "languages": [
-            "html",
-            "css",
-            "js"
-        ],
         "apis": [
             "Web Audio API",
             "WebRTC",
@@ -15,7 +10,10 @@
             "Windows",
             "Mac",
             "Linux",
-            "Chrome OS"
+            "Chrome OS",
+            "html",
+            "css",
+            "js"
         ],
         "toolkits": [
             "jQuery",
