@@ -1,7 +1,7 @@
 {
   "name": "Little Data: A Web Art Experiment",
   "description": "Using cutting-edge web technologies, color data taken in from your computer's camera are sampled, processed & output as sound.",
-  "version": "3.0",
+  "version": "3.5",
   "app": {
     "background": {
       "scripts": ["js/background.js"]
