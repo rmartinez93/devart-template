@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Devart-template by rmartinez93</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Devart-template</h1>
+        <h2></h2>
+        <a href="https://github.com/rmartinez93/devart-template" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a name="little-data" class="anchor" href="#little-data"><span class="octicon octicon-link"></span></a>Little Data</h1>
+
+<h2>
+<a name="authors" class="anchor" href="#authors"><span class="octicon octicon-link"></span></a>Authors</h2>
+
+<ul>
+<li>Ruben Martinez, Github: rmartinez93</li>
+</ul><h2>
+<a name="description" class="anchor" href="#description"><span class="octicon octicon-link"></span></a>Description</h2>
+
+<p>Color data processed from a computer's camera are randomly sampled, processed, and output as a pitch in real-time. Different colors sound differently, allowing you to listen to the colors of the world around you. Color-to-sound mapping has long been a personal interest of mine due my color-blindness. While this experiment does not provide a one-to-one mapping of colors and pitches (though I’m working on expanding it to do just that), it serves as a way to show just how musical and full of color the world around us can be. Controls allow the user to be in control and change various factors in the conversion algorithm, and I've included a few preset options that I feel best illustrate the beauty of listening to what we see.</p>
+
+<h2>
+<a name="link-to-prototype" class="anchor" href="#link-to-prototype"><span class="octicon octicon-link"></span></a>Link to Prototype</h2>
+
+<p><a href="https://chrome.google.com/webstore/detail/little-data-a-web-art-exp/clgkogdimfofiapppjnpbkpkanghiabh" title="Download from Chrome Web Store">Download from Chrome Web Store</a></p>
+
+<p><a href="http://rmartinez.co/DATA" title="See in Chrome Browser">See in Chrome Browser</a></p>
+
+<h2>
+<a name="example-grabbing-color-data-outputing-pitch" class="anchor" href="#example-grabbing-color-data-outputing-pitch"><span class="octicon octicon-link"></span></a>Example Grabbing Color Data, Outputing Pitch</h2>
+
+<pre><code>x = Math.floor(Math.random()*canvas.clientWidth);
+y = Math.floor(Math.random()*canvas.clientHeight);
+
+data = ctx.getImageData(x, y, 1, 1).data;
+
+var HSL = rgbToHsl(data[0], data[1], data[2]);
+
+var height   = Math.pow(2, Math.floor(scale+(HSL[2]/20))); //height range, from C-(scale) to C-(scale+5), based on lightness
+var end      = Math.pow(2, Math.floor(scale+(HSL[2]/20))+1); //end of chosen scale
+var pitch    = height+(((end-height)/360)*HSL[0]); //find pitch in our scale range, based on hue
+var loudness = HSL[1]*5; //TODO: find loudness, based on saturation
+
+var now = context.currentTime;
+oscillator.frequency.setValueAtTime(pitch, now);
+amp.gain.cancelScheduledValues(now);
+amp.gain.setValueAtTime(amp.gain.value, now);
+amp.gain.linearRampToValueAtTime(0.5, context.currentTime + 0.1);
+</code></pre>
+
+<h2>
+<a name="links-to-external-libraries" class="anchor" href="#links-to-external-libraries"><span class="octicon octicon-link"></span></a>Links to External Libraries</h2>
+
+<p><a href="https://gist.github.com/mjijackson/5311256" title="RGB to HSV Conversion">RGB to HSV Conversion</a>
+<a href="http://sondreb.com/blog/post/chromeless-chrome-app.aspx" title="Chromeless Chrome App">Chromeless Chrome App</a>
+<a href="https://github.com/driftyco/ionicons" title="Ionicons Framework">Ionicons</a></p>
+
+<h2>
+<a name="images--videos" class="anchor" href="#images--videos"><span class="octicon octicon-link"></span></a>Images &amp; Videos</h2>
+
+<p><img src="project_images/cover.jpg" alt="Example Image" title="Example Image"></p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/rmartinez93/devart-template/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/rmartinez93/devart-template/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/rmartinez93/devart-template"></a> is maintained by <a href="https://github.com/rmartinez93">rmartinez93</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
