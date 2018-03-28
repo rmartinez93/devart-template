@@ -7,9 +7,7 @@
 Color data processed from a computer's camera are randomly sampled, processed, and output as a pitch in real-time. Different colors sound differently, allowing you to listen to the colors of the world around you. Color-to-sound mapping has long been a personal interest of mine due my color-blindness. While this experiment does not provide a one-to-one mapping of colors and pitches (though I’m working on expanding it to do just that), it serves as a way to show just how musical and full of color the world around us can be. Controls allow the user to be in control and change various factors in the conversion algorithm, and I've included a few preset options that I feel best illustrate the beauty of listening to what we see.
 
 ## Link to Prototype
-[Download from Chrome Web Store](https://chrome.google.com/webstore/detail/little-data-a-web-art-exp/clgkogdimfofiapppjnpbkpkanghiabh "Download from Chrome Web Store")
- 
-[See in Chrome Browser](http://rmartinez.co/DATA "See in Chrome Browser")
+[See in CodePen](https://codepen.io/rubencodes/pen/vRpxRe "See in CodePen")
 
 ## Example Grabbing Color Data, Outputing Pitch
 ```
